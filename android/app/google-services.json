@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1025625818296",
+    "project_id": "mynotes-flutter-buding",
+    "storage_bucket": "mynotes-flutter-buding.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025625818296:android:27b213c58730060787e04d",
+        "android_client_info": {
+          "package_name": "com.buding.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025625818296-jhtm1gq856ahks5jmobkr5v9i2bmbup9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM5IggTvsKwZpgBnPxJqHMwYoiu0_EuXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1025625818296-jhtm1gq856ahks5jmobkr5v9i2bmbup9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1025625818296-0lh3dulj5fu330hpgs81p3ngjf9chlai.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.buding.mynotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
