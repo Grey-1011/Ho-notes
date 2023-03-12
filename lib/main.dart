@@ -18,6 +18,7 @@ void main() {
         loginRoute: (context) => const LoginView(),
         registerRoute: (context) => const RegisterView(),
         notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -73,56 +74,57 @@ class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Main UI'),
-          actions: [
-            PopupMenuButton<MenuAction>(
-                itemBuilder: (BuildContext context) =>
-                    <PopupMenuEntry<MenuAction>>[
-                      const PopupMenuItem(
-                        value: MenuAction.edit,
-                        child: Text('Edit'),
-                      ),
-                      const PopupMenuItem(
-                        value: MenuAction.delete,
-                        child: Text('Delete'),
-                      ),
-                      const PopupMenuItem(
-                        value: MenuAction.share,
-                        child: Text('Share'),
-                      ),
-                      const PopupMenuItem(
-                        value: MenuAction.logout,
-                        child: Text('Log out'),
-                      )
-                    ],
-                onSelected: (MenuAction result) async {
-                  switch (result) {
-                    case MenuAction.edit:
-                      break;
-                    case MenuAction.delete:
-                      break;
-                    case MenuAction.share:
-                      break;
-                    case MenuAction.logout:
-                      final shouldLogout = await showLogOutDialog(context);
-                      if (shouldLogout) {
-                        await FirebaseAuth.instance.signOut();
-                        if (mounted) {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                            loginRoute,
-                            (route) => false,
-                          );
-                        }
-                      }
-                      break;
-                    default:
-                      break;
+      appBar: AppBar(
+        title: const Text('Main UI'),
+        actions: [
+          PopupMenuButton<MenuAction>(
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<MenuAction>>[
+              const PopupMenuItem(
+                value: MenuAction.edit,
+                child: Text('Edit'),
+              ),
+              const PopupMenuItem(
+                value: MenuAction.delete,
+                child: Text('Delete'),
+              ),
+              const PopupMenuItem(
+                value: MenuAction.share,
+                child: Text('Share'),
+              ),
+              const PopupMenuItem(
+                value: MenuAction.logout,
+                child: Text('Log out'),
+              )
+            ],
+            onSelected: (MenuAction result) async {
+              switch (result) {
+                case MenuAction.edit:
+                  break;
+                case MenuAction.delete:
+                  break;
+                case MenuAction.share:
+                  break;
+                case MenuAction.logout:
+                  final shouldLogout = await showLogOutDialog(context);
+                  if (shouldLogout) {
+                    await FirebaseAuth.instance.signOut();
+                    if (mounted) {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        loginRoute,
+                        (route) => false,
+                      );
+                    }
                   }
-                }),
-          ],
-        ),
-        body: const Text('Hello World'));
+                  break;
+                default:
+                  break;
+              }
+            },
+          ),
+        ],
+      ),
+      body: const Text('Hello World'),
+    );
   }
 }
 
@@ -140,10 +142,11 @@ Future<bool> showLogOutDialog(BuildContext context) {
                 },
                 child: const Text('Cancel')),
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(true);
-                },
-                child: const Text('Log out'))
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+              child: const Text('Log out'),
+            )
           ],
         );
       })).then((value) => value ?? false);

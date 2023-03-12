@@ -79,7 +79,7 @@ class _LoginViewState extends State<LoginView> {
                   } else if (e.code == 'wrong-password') {
                     await showErrorDialog(context, 'Wrong password');
                   } else {
-                    showErrorDialog(context, 'Error: ${e.code}');
+                    await showErrorDialog(context, 'Error: ${e.code}');
                   }
                 } catch (e) {
                   await showErrorDialog(context, e.toString());
@@ -88,17 +88,17 @@ class _LoginViewState extends State<LoginView> {
               child: const Text('Login'),
             ),
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    registerRoute,
-                    (route) => false,
-                  );
-                },
-                child: const Text('Not registered yet? Register here!'))
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  registerRoute,
+                  (route) => false,
+                );
+              },
+              child: const Text('Not registered yet? Register here!'),
+            )
           ],
         ),
       ),
     );
   }
 }
-
