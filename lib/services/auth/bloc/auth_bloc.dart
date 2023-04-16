@@ -4,8 +4,53 @@ import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(AuthProvider provider) : super(const AuthStateUninitialized(isLoading: true)) {
+  AuthBloc(AuthProvider provider)
+      : super(const AuthStateUninitialized(isLoading: true)) {
     // 处理各种 Event, 然后根据这些 Event 生成各种 State
+
+    //
+    on<AuthEventShouldRegister>((event, emit) {
+      emit(const AuthStateRegistering(
+        exception: null,
+        isLoading: false,
+      ));
+    });
+
+    // forgot password
+    on<AuthEventForgotPassword>((event, emit) async {
+      emit(const AuthStateForgotPassword(
+        exception: null,
+        hasSentEmail: false,
+        isLoading: false,
+      ));
+      final email = event.email;
+      if (email == null) {
+        return; // user just wants to go to forgot-password screen
+      }
+
+      // user wants to actually send a forgot-password email
+      emit(const AuthStateForgotPassword(
+        exception: null,
+        hasSentEmail: false,
+        isLoading: true,
+      ));
+
+      bool didSentEmail;
+      Exception? exception;
+      try {
+        await provider.sendPasswordReset(toEmail: email);
+        didSentEmail = true;
+        exception = null;
+      } on Exception catch (e) {
+        didSentEmail = false;
+        exception = e;
+      }
+      emit(AuthStateForgotPassword(
+        exception: exception,
+        hasSentEmail: didSentEmail,
+        isLoading: false,
+      ));
+    });
 
     // register
     on<AuthEventRegister>((event, emit) async {
@@ -39,7 +84,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           isLoading: false,
         ));
       } else if (user.isEmailVerified) {
-        emit(AuthStateLoggedIn(isLoading: false, user: user,));
+        emit(AuthStateLoggedIn(
+          isLoading: false,
+          user: user,
+        ));
       } else {
         // AuthStateNeedsVerification(isLoading: false)
         // 因为这个状态 没有加载任何东西
