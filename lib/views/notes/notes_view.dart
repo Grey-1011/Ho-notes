@@ -46,34 +46,15 @@ class _NotesViewState extends State<NotesView> {
           PopupMenuButton<MenuAction>(
             itemBuilder: (BuildContext context) => <PopupMenuEntry<MenuAction>>[
               const PopupMenuItem(
-                value: MenuAction.edit,
-                child: Text('Edit'),
-              ),
-              const PopupMenuItem(
-                value: MenuAction.delete,
-                child: Text('Delete'),
-              ),
-              const PopupMenuItem(
-                value: MenuAction.share,
-                child: Text('Share'),
-              ),
-              const PopupMenuItem(
                 value: MenuAction.logout,
                 child: Text('Log out'),
               )
             ],
             onSelected: (MenuAction result) async {
               switch (result) {
-                case MenuAction.edit:
-                  break;
-                case MenuAction.delete:
-                  break;
-                case MenuAction.share:
-                  break;
                 case MenuAction.logout:
                   final shouldLogout = await showLogOutDialog(context);
                   if (shouldLogout) {
-
                     if (mounted) {
                       context.read<AuthBloc>().add(const AuthEventLogOut());
                     }

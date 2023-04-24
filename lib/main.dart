@@ -17,7 +17,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ho Notes',
       initialRoute: '/',
       routes: {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
