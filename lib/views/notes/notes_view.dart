@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show ReadContext;
+import 'package:mynotes/extensions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
@@ -10,6 +11,10 @@ import 'package:mynotes/views/notes/notes_list_view.dart';
 
 import '../../constants/routes.dart';
 import '../../enums/menu_action.dart';
+
+extension Count<T extends Iterable> on Stream<T> {
+  Stream<int> get getLength => map((event) => event.length);
+}
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -33,7 +38,18 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Notes'),
+        title: StreamBuilder(
+          stream: _notesService.allNotes(ownerUserId: userId).getLength,
+          builder: (context, AsyncSnapshot<int> snapshot) {
+            if (snapshot.hasData) {
+              final noteCount = snapshot.data ?? 0;
+              final text = context.loc.notes_title(noteCount);
+              return Text(text);
+            } else {
+              return const Text('');
+            }
+          },
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -45,9 +61,11 @@ class _NotesViewState extends State<NotesView> {
           ),
           PopupMenuButton<MenuAction>(
             itemBuilder: (BuildContext context) => <PopupMenuEntry<MenuAction>>[
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: MenuAction.logout,
-                child: Text('Log out'),
+                child: Text(
+                  context.loc.logout_button,
+                ),
               )
             ],
             onSelected: (MenuAction result) async {

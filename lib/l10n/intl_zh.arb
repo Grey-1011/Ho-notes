@@ -1,0 +1,62 @@
+{
+
+    "logout_button": "注销",
+    "note": "笔记",
+    "cancel": "取消",
+    "yes": "确认",
+    "delete": "删除",
+    "sharing": "分享",
+    "ok": "确认",
+    "login": "登录",
+    "verify_email": "验证邮箱",
+    "register": "注册",
+    "restart": "Restart",
+
+    "start_typing_your_note": "开始书写...",
+    "delete_note_prompt": "确认删除?",
+    "cannot_share_empty_note_prompt": "没有可分享的笔记!",
+    "generic_error_prompt": "An error occurred",
+    "logout_dialog_prompt": "确认登出?",
+
+    "password_reset": "密码重置",
+    "password_reset_dialog_prompt": "我们现在已经向您发送了密码重置链接。 请查看您的电子邮件以获取更多信息.",
+
+    "login_error_cannot_find_user": "找不到用户!",
+    "login_error_wrong_credentials": "错误的密码或邮箱",
+    "login_error_auth_error": "登录错误",
+
+    "login_view_prompt": "请登录您的帐户!",
+    
+    "login_view_forgot_password": "忘记密码",
+    "login_view_not_registered_yet": "新用户注册",
+
+    "email_text_field_placeholder": "邮箱",
+    "password_text_field_placeholder": "输入密码",
+    
+    "forgot_password": "忘记密码",
+    "forgot_password_view_generic_error": "我们无法处理您的请求。 请确保您是已注册用户，如果不是，请返回一个步骤立即注册用户。",
+    "forgot_password_view_prompt": "请输入您的邮箱",
+    "forgot_password_view_send_me_link": "找回密码",
+    "forgot_password_view_back_to_login": "返回登录",
+
+    "register_error_weak_password": "此密码不够安全，请选择其他密码！",
+    "register_error_email_already_in_use": "该邮箱已注册，请选择其他邮箱！",
+    "register_error_generic": "注册失败，请稍后再试！",
+    "register_error_invalid_email": "该邮箱地址似无效，请尝试其他电子邮件地址！",
+    "register_view_prompt": "请注册您的账户!",
+    "register_view_already_registered": "已注册? 登录!",
+
+    "verify_email_view_prompt": "我们已向您发送电子邮件验证。 请打开它以验证您的帐户。 如果您还没有收到验证邮件，请点击发送验证邮箱！",
+    "verify_email_send_email_verification": "发送验证邮箱",
+
+    "notes_title": "{count, plural, =0{笔记} =1{笔记 (1)} other{笔记 ({count})}}",
+    "@notes_title": {
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "3 notes"
+            }
+        }
+    }
+
+}
