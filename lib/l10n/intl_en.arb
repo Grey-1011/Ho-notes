@@ -17,6 +17,7 @@
     "cannot_share_empty_note_prompt": "Cannot share an empty note!",
     "generic_error_prompt": "An error occurred",
     "logout_dialog_prompt": "Are you sure you want to log out?",
+    "default_loading_text": "Please wait a moment",
 
     "password_reset": "Password reset",
     "password_reset_dialog_prompt": "We have now sent you a password reset link. Please check your email for more information.",
@@ -29,6 +30,7 @@
     
     "login_view_forgot_password": "I forgot my password",
     "login_view_not_registered_yet": "Not registered yet? Register here!",
+    "login_view_loading_text": "Please wait while I log you in",
 
     "email_text_field_placeholder": "Enter your email here",
     "password_text_field_placeholder": "Enter your password here",

@@ -83,10 +83,10 @@ class _LoginViewState extends State<LoginView> {
                   onPressed: () async {
                     final email = _email.text;
                     final password = _password.text;
-
+                    final loadingText = context.loc.login_view_loading_text;
                     context
                         .read<AuthBloc>()
-                        .add(AuthEventLogin(email, password));
+                        .add(AuthEventLogin(email, password, loadingText));
                   },
                   child: Text(
                     context.loc.login,

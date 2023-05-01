@@ -12,7 +12,8 @@ class AuthEventInitialize extends AuthEvent {
 class AuthEventLogin extends AuthEvent {
   final String email;
   final String password;
-  const AuthEventLogin(this.email, this.password);
+  final String loadingText;
+  const AuthEventLogin(this.email, this.password, this.loadingText);
 }
 
 class AuthEventsSendEmailVerification extends AuthEvent {

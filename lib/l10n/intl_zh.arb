@@ -17,6 +17,7 @@
     "cannot_share_empty_note_prompt": "没有可分享的笔记!",
     "generic_error_prompt": "An error occurred",
     "logout_dialog_prompt": "确认登出?",
+    "default_loading_text": "请稍后",
 
     "password_reset": "密码重置",
     "password_reset_dialog_prompt": "我们现在已经向您发送了密码重置链接。 请查看您的电子邮件以获取更多信息.",
@@ -29,6 +30,7 @@
     
     "login_view_forgot_password": "忘记密码",
     "login_view_not_registered_yet": "新用户注册",
+    "login_view_loading_text": "正在登录...",
 
     "email_text_field_placeholder": "邮箱",
     "password_text_field_placeholder": "输入密码",
