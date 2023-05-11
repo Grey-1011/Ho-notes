@@ -10,7 +10,7 @@
     "login": "登录",
     "verify_email": "验证邮箱",
     "register": "注册",
-    "restart": "Restart",
+    "restart": "返回登录",
 
     "start_typing_your_note": "开始书写...",
     "delete_note_prompt": "确认删除?",
@@ -20,13 +20,13 @@
     "default_loading_text": "请稍后",
 
     "password_reset": "密码重置",
-    "password_reset_dialog_prompt": "我们现在已经向您发送了密码重置链接。 请查看您的电子邮件以获取更多信息.",
+    "password_reset_dialog_prompt": "我们现在已经向您发送了密码重置链接。请查看您的电子邮件以获取更多信息.",
 
     "login_error_cannot_find_user": "找不到用户!",
     "login_error_wrong_credentials": "错误的密码或邮箱",
     "login_error_auth_error": "登录错误",
 
-    "login_view_prompt": "请登录您的帐户!",
+    "login_view_prompt": "请登录您的帐户",
     
     "login_view_forgot_password": "忘记密码",
     "login_view_not_registered_yet": "新用户注册",
@@ -45,10 +45,10 @@
     "register_error_email_already_in_use": "该邮箱已注册，请选择其他邮箱！",
     "register_error_generic": "注册失败，请稍后再试！",
     "register_error_invalid_email": "该邮箱地址似无效，请尝试其他电子邮件地址！",
-    "register_view_prompt": "请注册您的账户!",
+    "register_view_prompt": "请注册您的账户",
     "register_view_already_registered": "已注册? 登录!",
 
-    "verify_email_view_prompt": "我们已向您发送电子邮件验证。 请打开它以验证您的帐户。 如果您还没有收到验证邮件，请点击发送验证邮箱！",
+    "verify_email_view_prompt": "我们已向您发送电子邮件验证，请打开验证您的帐户。\n 如果您还没有收到验证邮件，请点击发送验证邮箱！",
     "verify_email_send_email_verification": "发送验证邮箱",
 
     "notes_title": "{count, plural, =0{笔记} =1{笔记 (1)} other{笔记 ({count})}}",

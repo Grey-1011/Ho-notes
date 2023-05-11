@@ -50,6 +50,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_quill: ^6.1.5
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -74,11 +76,17 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: SourceHanSerifSC
+      fonts:
+        - asset: assets/fonts/SourceHanSerifSC-VF.ttf
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/images/verify_email.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

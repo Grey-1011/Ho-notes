@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/extensions/buildcontext/loc.dart';
@@ -29,6 +30,15 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+          headline2: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+        ),
+        // appBarTheme: const AppBarTheme(
+        //   systemOverlayStyle: SystemUiOverlayStyle(
+        //     statusBarColor: Color.fromARGB(255, 4, 4, 78),
+        //   ),
+        // ),
       ),
       home: BlocProvider<AuthBloc>(
         create: (context) => AuthBloc(FirebaseAuthProvider()),
@@ -43,6 +53,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.dark,
+      ),
+    );
     context.read<AuthBloc>().add(const AuthEventInitialize());
 
     return BlocConsumer<AuthBloc, AuthState>(
@@ -71,7 +87,7 @@ class HomePage extends StatelessWidget {
               return const ForgotPasswordView();
             } else {
               return const Scaffold(
-                body: CircularProgressIndicator(),
+                body: Center(child: CircularProgressIndicator()),
               );
             }
           },

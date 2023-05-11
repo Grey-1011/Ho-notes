@@ -52,68 +52,113 @@ class _RegisterViewState extends State<RegisterView> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            context.loc.register,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.blue,
+                Colors.purple,
+              ],
+            ),
           ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  context.loc.register_view_prompt,
+          child: Column(
+            children: [
+              AppBar(
+                title: Text(
+                  context.loc.register,
+                  style: Theme.of(context).textTheme.headline1,
                 ),
-                TextField(
-                  autofocus: true,
-                  controller: _email,
-                  autocorrect: false,
-                  enableSuggestions: false,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: context.loc.email_text_field_placeholder,
-                  ),
-                ),
-                TextField(
-                  autofocus: true,
-                  controller: _password,
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                    hintText: context.loc.password_text_field_placeholder,
-                  ),
-                ),
-                Center(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
                   child: Column(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextButton(
-                        onPressed: () async {
-                          final email = _email.text;
-                          final password = _password.text;
-                          context
-                              .read<AuthBloc>()
-                              .add(AuthEventRegister(email, password));
-                        },
-                        child: Text(
-                          context.loc.register,
+                      Text(
+                        context.loc.register_view_prompt,
+                      ),
+                      const SizedBox(height: 16.0),
+                      TextField(
+                        autofocus: true,
+                        controller: _email,
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          hintText: context.loc.email_text_field_placeholder,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            gapPadding: 40.0,
+                          ),
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          context.read<AuthBloc>().add(const AuthEventLogOut());
-                        },
-                        child: Text(
-                          context.loc.register_view_already_registered,
+                      const SizedBox(height: 16.0),
+                      TextField(
+                        autofocus: true,
+                        controller: _password,
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                        decoration: InputDecoration(
+                          hintText: context.loc.password_text_field_placeholder,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            gapPadding: 40.0,
+                          ),
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 48.0),
+                      Center(
+                        child: Column(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () async {
+                                final email = _email.text;
+                                final password = _password.text;
+                                context
+                                    .read<AuthBloc>()
+                                    .add(AuthEventRegister(email, password));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14.0,
+                                  horizontal: 72.0,
+                                ), // 按钮内边距
+                                shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.circular(20.0), // 按钮圆角
+                                ),
+                                textStyle: const TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              child: Text(
+                                context.loc.register,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                context
+                                    .read<AuthBloc>()
+                                    .add(const AuthEventLogOut());
+                              },
+                              child: Text(
+                                context.loc.register_view_already_registered,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
