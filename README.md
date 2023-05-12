@@ -1,16 +1,9 @@
-# mynotes
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Ho Notes
+#### My first flutter project
+![Screenshot_1683814933](https://github.com/Grey-1011/mynotes/assets/95741660/8c8a0364-c0b3-40dd-9323-e4e3aea26ff3)
+![Screenshot_1683814941](https://github.com/Grey-1011/mynotes/assets/95741660/fda8f9f6-f518-4fa1-af93-ec871c6583e1)
+![Screenshot_1683814946](https://github.com/Grey-1011/mynotes/assets/95741660/59878f88-52d8-4492-8d0e-690442f212f5)
+![Screenshot_1683815026](https://github.com/Grey-1011/mynotes/assets/95741660/e80dfdd3-6ea9-4915-b0c6-9d0d521f5f4c)
+![Screenshot_1683815693](https://github.com/Grey-1011/mynotes/assets/95741660/fa157552-3ff3-44f0-8066-335bb5193c89)
+![Screenshot_1683815697](https://github.com/Grey-1011/mynotes/assets/95741660/38e94d36-3377-43c8-a97c-8d47b79ec941)
+![Screenshot_1683815702](https://github.com/Grey-1011/mynotes/assets/95741660/232dcc4a-2518-4948-a25b-d84091e328b8)
